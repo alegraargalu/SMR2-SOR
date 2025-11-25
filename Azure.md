@@ -1,4 +1,4 @@
-# 2.21
+# Máquina Virtual Azure
 Los pasos que sigo para intentar instalar la máquina virtual en Azure.
 ```mermaid
 flowchart TD
