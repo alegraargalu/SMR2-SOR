@@ -34,4 +34,24 @@ Seguido de lo anterior te dirá que existen archivos antiguos, te dirá que tien
 Ahora ya tenemos nuestro servidor OpenLDAP instalado y configuración.
 
 ## Gestión
-Vamos a crear un grupo
+Vamos a crear un grupo y una unidad organizativa. Para crear y entrar en el archivo que vamos a modificar ejecutaremos el comando "sudo nano grup.ldif". El fichero tienen que acabar parecido a este.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/9c97230a-e00d-4188-976f-1f4a82dd341c" />
+Después añadimos el grupo con el comando "sudo ldapadd -x -D cn=admin,dc=SORdom,dc=org -W -f grup.ldif", pones la contraseña que si me has hecho caso has estado poniendo todo el rato y ya.
+
+### Incidencia
+Si no te deja es porque el LDAP no tiene tu usuario ni contraseña, si es así, sigue estos pasos para solucionarlo:
+  1. Ejecuta slappasswd. Pon la contraseña que quieras usar, te devolverá un código hash que empieza por "{SSHA}", cópialo o hazle una captura porque lo vamos a necesitar más tarde.
+  2. sudo nano admin.ldif. Tiene que quedar algo así:
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/17197612-e697-450b-bab4-39e2819284e7" />
+Donde pone "{SSHA}" tienes que escribir lo que te he dicho antes que copies o le hagas una foto/captura.
+
+  4. Aplícalo con este comando "sudo ldapmodify -Y EXTERNAL -H ldapi:/// -f admin.ldif".
+  5. Finalmente ya podrás ejecutar el comando con el que añadirás el fichero grup.ldif a la base de datos.
+
+### - Fin incidencia -
+
+Ahora vamos a crear un usuario que va a formar parte del grupo que acabamos de añadir a la base de datos, empezamos ejecutanto el comando "sudo nano usuarios.ldif" para crear y entrar en el fichero que editaremos para definir la información del usuario. Tendrá que quedar como en la siguiente imagen.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/40042511-62f8-47cd-ad95-d97187a07cf0" />
+Luego de esto volvemos a hacer lo mismo que hemos hecho antes para añadir el grupo a la base de datos del LDAP. "sudo ldapadd -x -D cn=admin,dc=SORdom,dc=org -W -f usuarios.ldif".
+
+## PHPLDAPAdmin
