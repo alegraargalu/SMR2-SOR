@@ -1,4 +1,4 @@
-# Instalación, configuración y uso de OpenLDAP
+# Instalación, configuración y gestión de OpenLDAP
 ## Previo a instalar OpenLDAP
 Antes de ponernos a instalar el OpenLDAP, pero ya con la máquina ubuntu sin interfaz gráfica, tendremos que hacer la configuración de la dirección IP de nuestra máquina, la máquina, como mínimo, tiene que tener un adaptador, cuando ya estés en la línea de comandos ,ejecuta el siguiente comando: sudo nano /etc/netplan/50-cloud-init.yaml. Y cuando estés dentro de ese fichero, escribe lo siguiente.
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/e49c9d80-be8c-4bf5-b88d-5372f11a8b16" />
@@ -22,3 +22,16 @@ Luego eliges el nombre que quieres que tenga tu dominio.
 
 También el nombre de organización.
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/cdb16bb2-99c1-4247-a015-c9f721844153" />
+
+Después de eso también te pedirá la contraseña del administrador, recomiento personalmente que pongas la misma todo el rato si es un sistema que no va a lanzarse, un sistema de prueba, de esta forma no te olvidarás de ninguna contraseña.
+
+Luego te preguntará si quieres uqe borre la base de datos en caso de purgado, elegimos que no.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/099216c0-9949-4d7d-a112-60dec532b485" />
+
+Seguido de lo anterior te dirá que existen archivos antiguos, te dirá que tiene que moverlos, le damos a Sí.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/2f44305c-9e34-4981-849f-d7dc0b1d765f" />
+
+Ahora ya tenemos nuestro servidor OpenLDAP instalado y configuración.
+
+## Gestión
+Vamos a crear un grupo
