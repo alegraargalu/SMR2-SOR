@@ -11,3 +11,14 @@ Para realizar la instalación primero ejecutaremos "audo apt update" para actual
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/8ba78e1b-7c5f-4a11-b973-6b030ce72a2e" />
 Aquí pondrás la contraseña que quieras, mi recomendación es que pongas la misma que tienes para ingresar en la cuenta de administrador.
 
+
+
+## Configuración
+Ahora para configurar el slapd, ejecutamos el comando "sudo dpkg-reconfigure slapd", al ejecutar el comando aparecerá la siguiente pantalla preguntándonos si queremos omitir la configuración de slapd, elegiremos que No.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/4a139128-b398-41ee-b51d-12a785b56cb7" />
+
+Luego eliges el nombre que quieres que tenga tu dominio.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/41b5313b-434e-417e-9478-22df45f71ab1" />
+
+También el nombre de organización.
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/cdb16bb2-99c1-4247-a015-c9f721844153" />
