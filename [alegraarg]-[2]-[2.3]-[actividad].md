@@ -4,7 +4,7 @@ Antes de ponernos a instalar el OpenLDAP, pero ya con la máquina ubuntu sin int
 <img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/e49c9d80-be8c-4bf5-b88d-5372f11a8b16" />
 Después de haber hecho esto, pulta "control + X", luego "y" y por último "enter". Después de pulsar estos botones en ese orden en la línea de comando escribe "sudo netplan apply" y comprueba si ha sido efectiva la modificación con "ip address". Si los cambios no se han efectuado prueba a reiniciarlo con "sudo reboot", y ya deberían de haberse hecho los cambios, si no es así revise el fichero netplan, y si nada de esto funciona, probablemente su máquina este corrupta.
 
-
+## Servidor
 
 ## Instalación
 Para realizar la instalación primero ejecutaremos "audo apt update" para actualizar el sistema, después de que haya acabado la actualización ejecutaremos "sudo apt install slapd ldap-utils", con este comando instalaremos el OpenLDAP. Después de ejecutar el comando aparecerá la siguiente pantalla:
@@ -55,3 +55,17 @@ Ahora vamos a crear un usuario que va a formar parte del grupo que acabamos de a
 Luego de esto volvemos a hacer lo mismo que hemos hecho antes para añadir el grupo a la base de datos del LDAP. "sudo ldapadd -x -D cn=admin,dc=SORdom,dc=org -W -f usuarios.ldif".
 
 ## PHPLDAPAdmin
+
+Instalamos el php con el comando "sudo apt install phpldapadimin"
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/f825b3b1-6c2c-40aa-bcfe-6d5ba4483b49" />
+
+Ahora ejecutamos "sudo nano /usr/share/phpldapadmin/config/config.php" Aquí modificaremos si queremos el nombre de dominio, de nuestro servidor y administrador si queremos, em mi caso lo voy a dejar de la siguiente forma:
+<img width="1920" height="1080" alt="imagen" src="https://github.com/user-attachments/assets/a86da7fa-548e-470c-9408-a4f1233a88dc" />
+
+Después de esto podremos entrar desde otro ordenador que esté conectado a la misma red escribiendo en la barra del navegador esto: "http://IP_del_servidor/phpldapadmin", podrás el "cn" que hayas estado poniéndo antes, y los dos "dc" que has estado poniéndo antes. Y de esta forma podrás modificar y editar el LDAP de forma gráfica.
+
+
+
+## Cliente
+
+## Instalación
