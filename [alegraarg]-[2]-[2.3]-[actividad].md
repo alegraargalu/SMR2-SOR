@@ -69,3 +69,26 @@ Después de esto podremos entrar desde otro ordenador que esté conectado a la m
 ## Cliente
 
 ## Instalación
+
+```mermaid
+flowchart TD
+A[Abre la terminal en el cliente, ya que toda la instalación y configuración la haremos en la termial]-->B[Actualiza el cliente con sudp apt update]
+B-->C[Luego para instalar el LDAP ejecuta el siguiente comando sudo apt install libpam-ldap libnss-ldap nss-updatedb libnss-db nscd ldap-utils]
+C-->D[Después de ejecutar este comando en el primer menu que aparezca tienes que poner la IP de tu sevidor empezando por ldap://]
+D--E[En la siguiente pantalla pon dc, seguido de un igual y el nombre del dominio, una coma y otra vez un dc segudo de un igual y la extensión del dominio]
+E-->F[Después elije la versión 3 en la siguiente pantalla]
+F-->G[En las siguientes dos ventanas elige si y no en ese orden]
+G-->H[Luego tendrás que elegir el usuario administrador para el dominio, tendrás que escribir cn seguido de un guión y luego lo mismo que has escrito antess para el nombre de dominio]
+H-->I[Luego tiens que escoger la contraseña del usuario administrador]
+```
+En caso de haberte equivocado en algo puedes volver a configurarlo con el comando "dpkg-reconfigure ldap-auth-config".
+
+```mermaid
+flowchart TD
+A[Entra a editar el fichero /etc/nsswitch.conf con nano]-->B[Donde pone passwd, group y shadow tienes que poner files ldap, y donde pone hosts, files dns]
+B-->C[Después de esa configuración tienes que actualizar la información de usuarios y grupos de LDAP con el comando sudo nss_updatedb ldap]
+C-->D[Si no se han aplicado los cambios entra en el fichero /etc/ldap.conf y revisa que el nombre de dominio y la IP estén correctos]
+D-->E[Ejecuta el siguiente comando para actualizar las políticas de autenticación predeterminadas: sudo pam-auth-update]
+E-->F[Tiene que estar todo seleccionado]
+F-->G[Si te pide que cambies las contraseñas de los usuarios tienes que entrar en el fichero /etc/pam.d/common-password, y donde pone password [success=1 tienes que dejar solo eso.]
+```
